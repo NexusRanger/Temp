@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Self-Defence Needs Diagnostic & Training Matcher | Jeth Randolph Stroud</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Chart.js for Radar Chart -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <!-- Passcode Protection Gate -->
+  <div id="authGate" class="auth-gate">
+    <div class="auth-card">
+      <div class="auth-icon-wrap">🔒</div>
+      <h2 class="auth-title">Restricted Preview</h2>
+      <p class="auth-subtitle">
+        This self-defence assessment prototype for <strong>Jeth Randolph's Stroud Classes</strong> is currently password-protected.
+      </p>
+      <form id="authForm" class="auth-form" onsubmit="event.preventDefault(); verifyPassword();">
+        <input 
+          type="password" 
+          id="authPassword" 
+          class="auth-input" 
+          placeholder="Enter Passcode" 
+          autocomplete="current-password"
+          required 
+        />
+        <div id="authError" class="auth-error">Incorrect passcode. Please try again.</div>
+        <button type="submit" class="btn-primary" style="width: 100%;">
+          Unlock Assessment
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <div class="container">
+    
+    <!-- Header -->
+    <header>
+      <div class="badge">
+        <span class="badge-pulse"></span>
+        Force Necessary UK • Stroud Assessment Tool
+      </div>
+      <h1>Self-Defence Needs Diagnostic & Training Matcher</h1>
+      <p class="subtitle">
+        Analyse your personal goals across 7 core self-defence parameters using the interactive sliders below. 
+        Compare your requirements on the live spider chart against various disciplines and discover how Jeth Randolph's 
+        Stroud classes fit your exact needs.
+      </p>
+    </header>
+
+    <!-- Preset Scenarios -->
+    <section class="presets-section">
+      <div class="presets-header">
+        <span class="presets-title">Quick-Select Student Personas:</span>
+        <div style="display: flex; gap: 0.5rem;">
+          <button class="lock-toggle-btn" onclick="lockAssessment()" title="Lock this page with passcode">
+            🔒 Lock
+          </button>
+          <button class="btn-secondary" style="padding: 0.35rem 0.75rem; font-size: 0.75rem;" onclick="printReport()">
+            🖨️ Print / Save Assessment
+          </button>
+        </div>
+      </div>
+      <div class="presets-grid" id="presetsGrid">
+        <!-- Injected via JavaScript -->
+      </div>
+    </section>
+
+    <!-- Main Two-Column Layout -->
+    <main class="main-layout">
+
+      <!-- Left Column: 7 Interactive Assessment Sliders -->
+      <section class="card">
+        <div class="card-title">
+          <span>Personal Needs Assessment</span>
+          <span style="font-size: 0.8rem; font-weight: 500; color: var(--text-muted);">7 Key Parameters</span>
+        </div>
+        <p class="card-subtitle">
+          Adjust each slider to reflect what you want most from your training (0% = unimportant, 100% = essential priority).
+        </p>
+
+        <div class="sliders-container" id="slidersContainer">
+          <!-- Injected via JavaScript -->
+        </div>
+      </section>
+
+      <!-- Right Column: Spider Chart & Live Fit Analysis -->
+      <section style="display: flex; flex-direction: column; gap: 1.5rem;">
+        
+        <!-- Radar Chart Card -->
+        <div class="card">
+          <div class="card-title">
+            <span>Visual Needs Profile (Spider Chart)</span>
+          </div>
+          <p class="card-subtitle">
+            Visualises your custom needs profile overlaid against benchmark training systems.
+          </p>
+
+          <div class="chart-container-wrapper">
+            <canvas id="spiderChart"></canvas>
+          </div>
+
+          <!-- Comparison Overlays Toggle Bar -->
+          <div class="systems-toggle-bar">
+            <span class="toggle-title">Toggle Comparison Disciplines:</span>
+            <div class="toggle-chips" id="systemToggles">
+              <!-- Injected via JavaScript -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Jeth Randolph Fit Analysis Card -->
+        <div class="verdict-card">
+          <div class="verdict-layout">
+            <div class="match-circle-wrap">
+              <div class="match-score-badge">
+                <span class="match-percent" id="jethMatchPercent">--%</span>
+                <span class="match-label">Match Fit</span>
+              </div>
+            </div>
+            <div class="verdict-content">
+              <h3 id="verdictTitle">Analyzing your requirements...</h3>
+              <p class="verdict-desc" id="verdictDesc">Adjust the sliders to view your personalized assessment.</p>
+              <div class="verdict-highlights" id="verdictHighlights">
+                <!-- Injected via JavaScript -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+
+    <!-- Ranked Systems Comparison Section -->
+    <section class="ranking-section">
+      <h2 style="font-size: 1.4rem; font-weight: 700; color: #fff; margin-bottom: 0.35rem;">
+        Comparative System Breakdown
+      </h2>
+      <p style="color: var(--text-muted); font-size: 0.9rem;">
+        See how other common combat and martial arts disciplines align with your current requirements.
+      </p>
+
+      <div class="ranking-grid" id="rankingGrid">
+        <!-- Injected via JavaScript -->
+      </div>
+    </section>
+
+    <!-- Stroud Class Information & Venue Banner -->
+    <section class="stroud-banner">
+      <div class="stroud-layout">
+        <div>
+          <h2 class="stroud-title">Train in Stroud with Jeth Randolph</h2>
+          <p style="color: #9ca3af; font-size: 0.95rem; line-height: 1.5;">
+            Jeth Randolph is the head instructor at <strong>Force Necessary UK</strong>, teaching W. Hock Hochheim's 
+            globally recognized reality-based self-protection syllabus. Holding Level 12 Master Instructor (3rd Dan) 
+            in Unarmed Combat and Level 5 Knife Instructor certification, his classes deliver no-nonsense street safety 
+            tailored for everyday people.
+          </p>
+
+          <div class="stroud-meta-list">
+            <div class="stroud-meta-item">
+              <span style="color: #ef4444; font-weight: bold;">📍 Venue:</span>
+              <span>Lansdown Hall, Lansdown, Stroud, GL5 1BB</span>
+            </div>
+            <div class="stroud-meta-item">
+              <span style="color: #ef4444; font-weight: bold;">🗓️ Schedule:</span>
+              <span>Tuesdays: 7:00 PM – 8:00 PM</span>
+            </div>
+            <div class="stroud-meta-item">
+              <span style="color: #ef4444; font-weight: bold;">👥 Suitability:</span>
+              <span>Men and women (ages 16+), all fitness levels & beginners welcome. Ego-free, safe atmosphere.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="stroud-cta-box">
+          <button class="btn-primary" onclick="alert('To arrange a trial session with Jeth Randolph at Lansdown Hall in Stroud, visit forcenecessary.co.uk or email directly to book in for a Tuesday session.')">
+            Enquire About a Class
+          </button>
+          <button class="btn-secondary" onclick="printReport()">
+            Save / Print Assessment
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>Self-Defence Needs Diagnostic Tool • Created for Jeth Randolph's Stroud Self-Defence Training • Force Necessary UK</p>
+    </footer>
+
+  </div>
+
+  <!-- Scripts -->
+  <script src="systems-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
