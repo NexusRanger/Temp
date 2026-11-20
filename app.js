@@ -35,9 +35,11 @@ function initAuth() {
 
   if (isUnlocked) {
     document.body.classList.remove("locked");
+    document.title = "Self-Defence Needs Diagnostic & Training Matcher";
     if (authGate) authGate.classList.add("hidden");
   } else {
     document.body.classList.add("locked");
+    document.title = "Project Preview";
     if (authGate) authGate.classList.remove("hidden");
     if (authInput) setTimeout(() => authInput.focus(), 100);
   }
@@ -54,6 +56,7 @@ window.verifyPassword = async function() {
   if (VALID_PASSCODE_HASHES.includes(hash)) {
     sessionStorage.setItem("jeth_assessment_auth", "unlocked");
     document.body.classList.remove("locked");
+    document.title = "Self-Defence Needs Diagnostic & Training Matcher";
     if (authGate) authGate.classList.add("hidden");
     if (errorElem) errorElem.classList.remove("visible");
     input.value = "";
@@ -69,6 +72,7 @@ window.lockAssessment = function() {
   const authGate = document.getElementById("authGate");
   const authInput = document.getElementById("authPassword");
   document.body.classList.add("locked");
+  document.title = "Project Preview";
   if (authGate) authGate.classList.remove("hidden");
   if (authInput) {
     authInput.value = "";
